@@ -1,35 +1,6 @@
 # hand-gesture-recognition-using-mediapipe
 Estimate hand pose using MediaPipe (Python version).<br> This is a sample 
 
-## 🏗️ System Architecture
-```mermaid
-graph TD
-    A[Webcam Feed] -->|Frames| B(MediaPipe Holistic)
-    B -->|Extract Keypoints| C[Feature Vector (1662,)]
-    C -->|Sequence of 30 Frames| D{LSTM Neural Network}
-    D -->|Softmax Prediction| E[Sign Probability]
-    E -->|Confidence > 0.8| F[Text-to-Speech Engine]
-
-This repository contains the following contents.
-* Sample program
-* Hand sign recognition model(TFLite)
-* Finger gesture recognition model(TFLite)
-* Learning data for hand sign recognition and notebook for learning
-* Learning data for finger gesture recognition and notebook for learning
-
-# Requirements
-* mediapipe 0.8.1
-* OpenCV 3.4.2 or Later
-* Tensorflow 2.3.0 or Later<br>tf-nightly 2.5.0.dev or later (Only when creating a TFLite for an LSTM model)
-* scikit-learn 0.23.2 or Later (Only if you want to display the confusion matrix) 
-* matplotlib 3.3.2 or Later (Only if you want to display the confusion matrix)
-
-# Demo
-Here's how to run the demo using your webcam.
-```bash
-python app.py
-```
-
 The following options can be specified when running the demo.
 * --device<br>Specifying the camera device number (Default：0)
 * --width<br>Width at the time of camera capture (Default：960)
@@ -141,9 +112,6 @@ The image of the model prepared in "[point_history_classification.ipynb](point_h
 <img src="https://user-images.githubusercontent.com/37477845/102246771-7481ff00-3f42-11eb-8ddf-9e3cc30c5816.png" width="50%"><br>
 The model using "LSTM" is as follows. <br>Please change "use_lstm = False" to "True" when using (tf-nightly required (as of 2020/12/16))<br>
 <img src="https://user-images.githubusercontent.com/37477845/102246817-8368b180-3f42-11eb-9851-23a7b12467aa.png" width="60%">
-
-
-Nikita Kiselov(https://github.com/kinivi)
  
 # License 
 hand-gesture-recognition-using-mediapipe is under [Apache v2 license](LICENSE).
